@@ -1,49 +1,22 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>28 октября 2024</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-image: url('background.jpg'); /* название вашего фонового изображения */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-        }
-
-        h1 {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 2em;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <h1>28 октября 2024</h1>
-
     <script>
         let zombie = document.createElement('img');
         zombie.src = 'Pictures/zombie-walk.gif';
         document.body.append(zombie);
-
+    
         let left = 100;
         let step = 1;
         zombie.style.position = 'fixed';
         zombie.style.top = '100px';
         zombie.style.left = left + 'px';
-
+    
         function moveZombie() {
             left = left + step;
             
@@ -51,10 +24,10 @@
                 step = step * (-1);
                 zombie.style.transform = step > 0 ? 'rotateY(0deg)' : 'rotateY(180deg)';
             }
-
+    
             zombie.style.left = left + 'px';
         }
-
+    
         setInterval(moveZombie, 100);
     </script>
 </body>
