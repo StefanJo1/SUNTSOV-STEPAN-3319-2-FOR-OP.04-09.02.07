@@ -18,11 +18,17 @@
         zombie.style.left = left + 'px';
     
         function moveZombie() {
-            left += step;
+            left = left + step;
+            
+            if (left > window.innerWidth - zombie.width || left < 0) {
+                step = step * (-1);
+                zombie.style.transform = step > 0 ? 'rotateY(0deg)' : 'rotateY(180deg)';
+            }
+    
             zombie.style.left = left + 'px';
         }
     
         setInterval(moveZombie, 100);
-    </script>   
+    </script>    
 </body>
 </html>
