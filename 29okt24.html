@@ -15,34 +15,38 @@
     </style>
 </head>
 <body>
-    <div id="field" onclick="showCoord(event)"></div>
+    <div id="field" onclick="createZombie(event)"></div>
 
     <script>
-        let zombie = document.createElement('img');
-        zombie.src = 'Pictures/zombie-walk.gif';
-        
         let field = document.getElementById('field');
-        field.append(zombie);
 
-        let left = 100;
-        let step = 1;
-        zombie.style.position = 'absolute';
-        zombie.style.top = '100px';
-        zombie.style.left = left + 'px';
-
-        function moveZombie() {
-            left = left + step;
-            if (left > field.clientWidth - zombie.width || left < 0) {
-                step = step * (-1);
-                zombie.style.transform = step > 0 ? 'rotateY(0deg)' : 'rotateY(180deg)';
-            }
-
-            zombie.style.left = left + 'px';
-        }
-
-        setInterval(moveZombie, 100);
         function showCoord(event) {
             console.log(event.clientX + ':' + event.clientY);
+        }
+
+        function createZombie(event) {
+            let zombie = document.createElement('img');
+            zombie.src = 'Pictures/zombie-walk.gif';
+            field.append(zombie);
+            console.log(event.clientX+'Pictures/zombie-walk.gif'+event.cllentY);
+
+            let left = 100;
+            let step = 1;
+            zombie.style.position = 'absolute';
+            zombie.style.top = '100px';
+            zombie.style.left = left + 'px';
+
+            function moveZombie() {
+                left = left + step;
+                if (left > field.clientWidth - zombie.width || left < 0) {
+                    step = step * (-1);
+                    zombie.style.transform = step > 0 ? 'rotateY(0deg)' : 'rotateY(180deg)';
+                }
+                zombie.style.left = left + 'px';
+                zombie.style.top = event.clientY + 'px';
+            }
+
+            setInterval(moveZombie, 100);
         }
     </script>
 </body>
