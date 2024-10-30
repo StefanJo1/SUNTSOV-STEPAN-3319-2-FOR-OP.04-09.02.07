@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Города и стоимость квадратного метра</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #diagram {
+            display: flex;
+            color: white;
+            align-items: flex-end;
+        }
+        .city {
+            width: 100px;
+            margin: 10px;
+            background: blue;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="diagram"></div>
+
+    <script>
+        let city_name = ['Щелково', 'Нью-Йорк', 'Токио', 'Рио-де-Жанейро', 'Москва'];
+        let cost = [500, 750, 920, 650, 1100];
+
+        let diagram = document.getElementById('diagram');
+
+        for (let i = 0; i < city_name.length; i++) {
+            let city = document.createElement('div');
+            city.classList.add('city');
+            city.style.height = cost[i] + 'px';
+            city.innerHTML = `${city_name[i]}<br>${cost[i]}`;
+            diagram.appendChild(city);
+        }
+    </script>
+</body>
+</html>
+
