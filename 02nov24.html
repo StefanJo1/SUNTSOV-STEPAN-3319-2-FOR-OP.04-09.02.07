@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Тестовое поле и кнопка</h1>
+    <input type="text" id="inputText" placeholder="Введите текст">
+    <button onclick="displayText()">Отобразить текст</button>
+    <div id="output"></div>
+
+    <script>
+        function displayText() {
+            let input = document.getElementById('inputText').value;
+            document.getElementById('output').innerText = input;
+        }
+    </script>
+</body>
+</html>
